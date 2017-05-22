@@ -99,7 +99,7 @@
 <meta property="og:description" content="使用sklearn 自带的最近邻实现分类">
 <meta property="og:image" content="http://yoursite.com/2017/05/22/Nearest-Neighbors/uniform.jpg">
 <meta property="og:image" content="http://yoursite.com/2017/05/22/Nearest-Neighbors/distance.jpg">
-<meta property="og:updated_time" content="2017-05-22T15:33:02.234Z">
+<meta property="og:updated_time" content="2017-05-22T15:37:29.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nearest Neighbors">
 <meta name="twitter:description" content="使用sklearn 自带的最近邻实现分类">
@@ -349,10 +349,8 @@
 <h2 id="解释np-c-的作用"><a href="#解释np-c-的作用" class="headerlink" title="解释np.c_的作用"></a>解释np.c_的作用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">np.c_[np.array([[1, 2, 3]]),0 ,0, np.array([[4, 5, 6]])]</div><div class="line">&gt;&gt;&gt;array([[1, 2, 3, 0, 0, 4, 5, 6]])</div><div class="line"></div><div class="line">t1 = np.array([[1, 2, 3],</div><div class="line">               [4, 5, 6],</div><div class="line">               [7, 8, 9]])</div><div class="line"></div><div class="line">t2 = np.array([[9, 8, 7], </div><div class="line">               [6, 5, 4], </div><div class="line">               [3, 2, 1]])</div><div class="line"></div><div class="line">np.c_[t1,np.array([[0],[0],[0]]), t2]</div><div class="line">&gt;&gt;&gt;array([[1, 2, 3, 0, 9, 8, 7],</div><div class="line">       [4, 5, 6, 0, 6, 5, 4],</div><div class="line">       [7, 8, 9, 0, 3, 2, 1]])</div></pre></td></tr></table></figure>
 <p>可以看出来，np.c_的作用就是按照行来合并数组</p>
 <!-- JiaThis Button BEGIN -->
-<p><div class="jiathis_style"><br><span class="jiathis_txt">分享到：</span><br><a class="jiathis_button_qzone">QQ空间</a><br><a class="jiathis_button_tsina">新浪微薄</a><br><a class="jiathis_button_tqq">腾讯微薄</a><br><a class="jiathis_button_renren">人人网</a><br><a class="jiathis_button_kaixin001">开心网</a></div></p>
-<p><a href="http://www.jiathis.com/share?uid=2134267" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a><br><a class="jiathis_counter_style"></a><br></p>
-<p><script type="text/javascript"><br>var jiathis_config={<br>  data_track_clickback:true,<br>  summary:””,<br>  shortUrl:false,<br>  hideMore:false<br>}<br></script></p>
-<p><script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2134267" charset="utf-8"></script><br><!-- JiaThis Button END --></p>
+<p><script type="text/javascript"><br>var jiathis_config = {data_track_clickback:’true’};<br></script></p>
+<p><script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2134267" charset="utf-8"></script><br><!-- JiaThis Button END --></p>
 
       
     </div>
