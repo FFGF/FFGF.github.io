@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python,matplotlib,sklearn," />
+  <meta name="keywords" content="TensorFlow," />
 
 
 
@@ -90,19 +90,17 @@
 
 
 
-<meta name="description" content="使用matplotlib.pyplot 显示sklearn.dataset里面的图像数据">
-<meta name="keywords" content="Python,matplotlib,sklearn">
+<meta name="description" content="在端午节假日里，一直在看优酷上面学习莫烦大神的教学视频，在这里总结一下，以免时间久了，查看起来麻烦">
+<meta name="keywords" content="TensorFlow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python matplotlib显示sklearn里面的手写字体数据">
-<meta property="og:url" content="http://yoursite.com/2017/05/21/显示sklearn里面的手写体数据/index.html">
+<meta property="og:title" content="TensorFlow小例子">
+<meta property="og:url" content="http://yoursite.com/2017/05/31/TensorFlow小例子/index.html">
 <meta property="og:site_name" content="FengGuoFei blog">
-<meta property="og:description" content="使用matplotlib.pyplot 显示sklearn.dataset里面的图像数据">
-<meta property="og:image" content="http://yoursite.com/2017/05/21/显示sklearn里面的手写体数据/digits.jpg">
-<meta property="og:updated_time" content="2017-05-22T13:43:49.010Z">
+<meta property="og:description" content="在端午节假日里，一直在看优酷上面学习莫烦大神的教学视频，在这里总结一下，以免时间久了，查看起来麻烦">
+<meta property="og:updated_time" content="2017-05-31T13:07:49.421Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python matplotlib显示sklearn里面的手写字体数据">
-<meta name="twitter:description" content="使用matplotlib.pyplot 显示sklearn.dataset里面的图像数据">
-<meta name="twitter:image" content="http://yoursite.com/2017/05/21/显示sklearn里面的手写体数据/digits.jpg">
+<meta name="twitter:title" content="TensorFlow小例子">
+<meta name="twitter:description" content="在端午节假日里，一直在看优酷上面学习莫烦大神的教学视频，在这里总结一下，以免时间久了，查看起来麻烦">
 
 
 
@@ -130,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/21/显示sklearn里面的手写体数据/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/31/TensorFlow小例子/"/>
 
 
 
 
 
-  <title>Python matplotlib显示sklearn里面的手写字体数据 | FengGuoFei blog</title>
+  <title>TensorFlow小例子 | FengGuoFei blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +274,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/21/显示sklearn里面的手写体数据/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/31/TensorFlow小例子/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="冯郭飞">
@@ -293,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python matplotlib显示sklearn里面的手写字体数据</h1>
+          <h1 class="post-title" itemprop="name headline">TensorFlow小例子</h1>
         
 
         <div class="post-meta">
@@ -305,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-21T21:20:30+08:00">
-                2017-05-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T20:37:15+08:00">
+                2017-05-31
               </time>
             
 
@@ -362,9 +360,8 @@
       
 
       
-        <h2 id="使用matplotlib-pyplot-显示sklearn-dataset里面的图像数据"><a href="#使用matplotlib-pyplot-显示sklearn-dataset里面的图像数据" class="headerlink" title="使用matplotlib.pyplot 显示sklearn.dataset里面的图像数据"></a>使用matplotlib.pyplot 显示sklearn.dataset里面的图像数据</h2><a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">dataImage = digits.data[<span class="number">-1</span>].reshape((<span class="number">8</span>,<span class="number">8</span>))</div><div class="line"></div><div class="line">fig, axes = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, figsize=(<span class="number">8</span>, <span class="number">8</span>))</div><div class="line">axes[<span class="number">0</span>][<span class="number">0</span>].imshow(dataImage, cmap=<span class="string">'gray_r'</span>, interpolation=<span class="string">'nearest'</span>)</div><div class="line">axes[<span class="number">0</span>][<span class="number">0</span>].set_title(<span class="string">'nearest'</span>)</div><div class="line"></div><div class="line">axes[<span class="number">0</span>][<span class="number">1</span>].imshow(dataImage, cmap=<span class="string">'gray_r'</span>, interpolation=<span class="string">'bilinear'</span>)</div><div class="line">axes[<span class="number">0</span>][<span class="number">1</span>].set_title(<span class="string">'bilinear'</span>)</div><div class="line"></div><div class="line">axes[<span class="number">1</span>][<span class="number">0</span>].imshow(dataImage, cmap=<span class="string">'gray_r'</span>, interpolation=<span class="string">'bicubic'</span>)</div><div class="line">axes[<span class="number">1</span>][<span class="number">0</span>].set_title(<span class="string">'bicubic'</span>)</div><div class="line">axes[<span class="number">1</span>][<span class="number">1</span>].imshow(dataImage, cmap=<span class="string">'gray_r'</span>, interpolation=<span class="string">'spline16'</span>)</div><div class="line">axes[<span class="number">1</span>][<span class="number">1</span>].set_title(<span class="string">'spline16'</span>)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
-<p><img src="/2017/05/21/显示sklearn里面的手写体数据/digits.jpg" alt="digits.jpg"></p>
+        <h2 id="在端午节假日里，一直在看优酷上面学习莫烦大神的教学视频，在这里总结一下，以免时间久了，查看起来麻烦"><a href="#在端午节假日里，一直在看优酷上面学习莫烦大神的教学视频，在这里总结一下，以免时间久了，查看起来麻烦" class="headerlink" title="在端午节假日里，一直在看优酷上面学习莫烦大神的教学视频，在这里总结一下，以免时间久了，查看起来麻烦"></a>在端午节假日里，一直在看优酷上面学习莫烦大神的教学视频，在这里总结一下，以免时间久了，查看起来麻烦</h2><a id="more"></a>
+<h2 id="第一个小例子-y-0-1x-0-3"><a href="#第一个小例子-y-0-1x-0-3" class="headerlink" title="第一个小例子 y = 0.1x + 0.3"></a>第一个小例子 y = 0.1x + 0.3</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">x_data = np.random.rand(<span class="number">100</span>).astype(np.float32)</div><div class="line">y_data = x_data*<span class="number">0.1</span> + <span class="number">0.3</span></div><div class="line"><span class="comment">#设置一个随机的权重</span></div><div class="line">Weights = tf.Variable(tf.random_uniform([<span class="number">1</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</div><div class="line"><span class="comment">#设置一个偏置</span></div><div class="line">biases = tf.Variable(tf.zeros([<span class="number">1</span>]))</div><div class="line"></div><div class="line">y = Weights*x_data + biases</div><div class="line"><span class="comment">#定义损失</span></div><div class="line">loss = tf.reduce_mean(tf.square(y - y_data))</div><div class="line"><span class="comment">#用tf提供的优化器，学习速率是0.5</span></div><div class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</div><div class="line"><span class="comment">#使loss最下，即求出最优解</span></div><div class="line">train = optimizer.minimize(loss)</div><div class="line"><span class="comment">#变量初始化</span></div><div class="line">init = tf.global_variables_initializer()</div><div class="line"></div><div class="line">sess = tf.Session()</div><div class="line">sess.run(init)</div><div class="line"><span class="comment">#训练200次，每隔20次输出一下权重和偏置</span></div><div class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">201</span>):</div><div class="line">    sess.run(train)</div><div class="line">    <span class="keyword">if</span> step % <span class="number">20</span> == <span class="number">0</span>:</div><div class="line">        print(step, sess.run(Weights[<span class="number">0</span>]), sess.run(biases[<span class="number">0</span>]))</div><div class="line"></div><div class="line">&gt;&gt;&gt;</div><div class="line"><span class="number">0</span> <span class="number">-0.171042</span> <span class="number">0.584518</span></div><div class="line"><span class="number">20</span> <span class="number">-0.00522717</span> <span class="number">0.353491</span></div><div class="line"><span class="number">40</span> <span class="number">0.0664784</span> <span class="number">0.31704</span></div><div class="line"><span class="number">60</span> <span class="number">0.0893212</span> <span class="number">0.305429</span></div><div class="line"><span class="number">80</span> <span class="number">0.0965981</span> <span class="number">0.301729</span></div><div class="line"><span class="number">100</span> <span class="number">0.0989163</span> <span class="number">0.300551</span></div><div class="line"><span class="number">120</span> <span class="number">0.0996548</span> <span class="number">0.300176</span></div><div class="line"><span class="number">140</span> <span class="number">0.09989</span> <span class="number">0.300056</span></div><div class="line"><span class="number">160</span> <span class="number">0.099965</span> <span class="number">0.300018</span></div><div class="line"><span class="number">180</span> <span class="number">0.0999889</span> <span class="number">0.300006</span></div><div class="line"><span class="number">200</span> <span class="number">0.0999965</span> <span class="number">0.300002</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -394,11 +391,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
-            <a href="/tags/matplotlib/" rel="tag"># matplotlib</a>
-          
-            <a href="/tags/sklearn/" rel="tag"># sklearn</a>
+            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
           
         </div>
       
@@ -411,8 +404,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/21/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/05/22/Nearest-Neighbors/" rel="next" title="Nearest Neighbors">
+                <i class="fa fa-chevron-left"></i> Nearest Neighbors
               </a>
             
           </div>
@@ -421,8 +414,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/22/Logistic-Regression/" rel="prev" title="Logistic Regression">
-                Logistic Regression <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/31/TensorFlow添加层/" rel="prev" title="TensorFlow添加层">
+                TensorFlow添加层 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -581,7 +574,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用matplotlib-pyplot-显示sklearn-dataset里面的图像数据"><span class="nav-number">1.</span> <span class="nav-text">使用matplotlib.pyplot 显示sklearn.dataset里面的图像数据</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在端午节假日里，一直在看优酷上面学习莫烦大神的教学视频，在这里总结一下，以免时间久了，查看起来麻烦"><span class="nav-number">1.</span> <span class="nav-text">在端午节假日里，一直在看优酷上面学习莫烦大神的教学视频，在这里总结一下，以免时间久了，查看起来麻烦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一个小例子-y-0-1x-0-3"><span class="nav-number">2.</span> <span class="nav-text">第一个小例子 y = 0.1x + 0.3</span></a></li></ol></div>
             
 
           </div>
