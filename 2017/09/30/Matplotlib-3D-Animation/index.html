@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="matplotlib,TensorFlow," />
+  <meta name="keywords" content="3D,Matplotlib,Animation," />
 
 
 
@@ -90,17 +90,19 @@
 
 
 
-<meta name="description" content="用matplotlib来动态可视化TensorFlow的训练过程">
-<meta name="keywords" content="matplotlib,TensorFlow">
+<meta name="description" content="用matplotlib做3D动画">
+<meta name="keywords" content="3D,Matplotlib,Animation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TensorFlow用matplotlib1可视化">
-<meta property="og:url" content="http://yoursite.com/2017/05/31/TensorFlow用matplotlib可视化/index.html">
+<meta property="og:title" content="Matplotlib 3D Animation">
+<meta property="og:url" content="http://yoursite.com/2017/09/30/Matplotlib-3D-Animation/index.html">
 <meta property="og:site_name" content="FengGuoFei blog">
-<meta property="og:description" content="用matplotlib来动态可视化TensorFlow的训练过程">
-<meta property="og:updated_time" content="2017-07-23T11:34:35.849Z">
+<meta property="og:description" content="用matplotlib做3D动画">
+<meta property="og:image" content="http://yoursite.com/2017/09/30/Matplotlib-3D-Animation/matplotlib%203D.gif">
+<meta property="og:updated_time" content="2017-09-30T08:42:44.432Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TensorFlow用matplotlib1可视化">
-<meta name="twitter:description" content="用matplotlib来动态可视化TensorFlow的训练过程">
+<meta name="twitter:title" content="Matplotlib 3D Animation">
+<meta name="twitter:description" content="用matplotlib做3D动画">
+<meta name="twitter:image" content="http://yoursite.com/2017/09/30/Matplotlib-3D-Animation/matplotlib%203D.gif">
 
 
 
@@ -128,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/31/TensorFlow用matplotlib可视化/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/30/Matplotlib-3D-Animation/"/>
 
 
 
 
 
-  <title>TensorFlow用matplotlib1可视化 | FengGuoFei blog</title>
+  <title>Matplotlib 3D Animation | FengGuoFei blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/31/TensorFlow用matplotlib可视化/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/30/Matplotlib-3D-Animation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="冯郭飞">
@@ -291,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">TensorFlow用matplotlib1可视化</h1>
+          <h1 class="post-title" itemprop="name headline">Matplotlib 3D Animation</h1>
         
 
         <div class="post-meta">
@@ -303,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T21:43:54+08:00">
-                2017-05-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-30T16:35:33+08:00">
+                2017-09-30
               </time>
             
 
@@ -360,8 +362,9 @@
       
 
       
-        <h1 id="用matplotlib来动态可视化TensorFlow的训练过程"><a href="#用matplotlib来动态可视化TensorFlow的训练过程" class="headerlink" title="用matplotlib来动态可视化TensorFlow的训练过程"></a>用matplotlib来动态可视化TensorFlow的训练过程</h1><a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line">%matplotlib </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_layer</span><span class="params">(inputs, in_size, out_size, activation_function=None)</span>:</span></div><div class="line">    Weights = tf.Variable(tf.random_normal([in_size, out_size]))</div><div class="line">    biases = tf.Variable(tf.zeros([<span class="number">1</span>, out_size]) + <span class="number">0.1</span>)</div><div class="line">    </div><div class="line">    Wx_plus_b = tf.matmul(inputs, Weights) + biases</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> activation_function <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        outputs = Wx_plus_b</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        outputs = activation_function(Wx_plus_b)</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> outputs</div><div class="line"></div><div class="line">x_data = np.linspace(<span class="number">-1</span>, <span class="number">1</span>, <span class="number">300</span>, dtype=np.float32)[:, np.newaxis]</div><div class="line">noise = np.random.normal(<span class="number">0</span>, <span class="number">0.05</span>, x_data.shape).astype(np.float32)</div><div class="line">y_data = np.square(x_data) - <span class="number">0.5</span> + noise</div><div class="line"></div><div class="line">inputs = tf.placeholder(np.float32, [<span class="keyword">None</span>, <span class="number">1</span>])</div><div class="line">outputs = tf.placeholder(np.float32, [<span class="keyword">None</span>, <span class="number">1</span>])</div><div class="line"></div><div class="line">hiddlen_out = add_layer(inputs, <span class="number">1</span>, <span class="number">10</span>, activation_function=tf.nn.relu)</div><div class="line"></div><div class="line">logits_out = add_layer(hiddlen_out, <span class="number">10</span>, <span class="number">1</span>, activation_function=<span class="keyword">None</span>)</div><div class="line"></div><div class="line">loss = tf.reduce_mean(tf.square(logits_out - outputs))</div><div class="line"></div><div class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.1</span>)</div><div class="line"></div><div class="line">train = optimizer.minimize(loss)</div><div class="line"></div><div class="line"></div><div class="line">init = tf.global_variables_initializer()</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</div><div class="line">    sess.run(init)</div><div class="line">    </div><div class="line">    fig = plt.figure()</div><div class="line">    ax = fig.add_subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</div><div class="line">    ax.scatter(x_data, y_data)</div><div class="line">    plt.ion()</div><div class="line">    plt.show()</div><div class="line"></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</div><div class="line">        sess.run(train, feed_dict=&#123;inputs:x_data,outputs:y_data&#125;)</div><div class="line">        </div><div class="line">        <span class="keyword">if</span> i % <span class="number">50</span> == <span class="number">0</span>:</div><div class="line">            <span class="keyword">try</span>:</div><div class="line">                ax.lines.remove(lines[<span class="number">0</span>])</div><div class="line">            <span class="keyword">except</span> Exception:</div><div class="line">                <span class="keyword">pass</span></div><div class="line">            </div><div class="line">            prediction_value = sess.run(logits_out,</div><div class="line">                                        feed_dict=&#123;inputs:x_data&#125;)</div><div class="line">            <span class="comment">#print(prediction_value.shape)</span></div><div class="line">            lines = ax.plot(x_data, prediction_value, <span class="string">'r-'</span>, lw=<span class="number">5</span>)</div><div class="line">            plt.pause(<span class="number">1</span>)</div></pre></td></tr></table></figure>
+        <h1 id="用matplotlib做3D动画"><a href="#用matplotlib做3D动画" class="headerlink" title="用matplotlib做3D动画"></a>用matplotlib做3D动画</h1><a id="more"></a>
+<p>模式识别的感知器作业，想用matplotlib动态展示，每次那个点起作用，更新了平面，这样比较形象。<br>主要是参考了官网例子。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib</div><div class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> axes3d</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.animation <span class="keyword">as</span> animation</div><div class="line"></div><div class="line"><span class="comment">#https://github.com/matplotlib/matplotlib/issues/1451/</span></div><div class="line">w = np.array([</div><div class="line">    [<span class="number">-2</span>, <span class="number">-1</span>, <span class="number">-2</span>, <span class="number">-2</span>],</div><div class="line">    [ <span class="number">0</span>, <span class="number">-1</span>, <span class="number">-2</span>,  <span class="number">0</span>],</div><div class="line">    [ <span class="number">2</span>, <span class="number">-1</span>,  <span class="number">0</span>,  <span class="number">2</span>],</div><div class="line">    [ <span class="number">0</span>, <span class="number">-1</span>,  <span class="number">0</span>,  <span class="number">2</span>],</div><div class="line">    [<span class="number">-2</span>, <span class="number">-3</span>,  <span class="number">0</span>,  <span class="number">0</span>],</div><div class="line">    [ <span class="number">0</span>, <span class="number">-3</span>,  <span class="number">0</span>,  <span class="number">2</span>],</div><div class="line">    [ <span class="number">2</span>, <span class="number">-1</span>,  <span class="number">2</span>,  <span class="number">4</span>],</div><div class="line">    [ <span class="number">0</span>, <span class="number">-1</span>,  <span class="number">2</span>,  <span class="number">4</span>],</div><div class="line">    [<span class="number">-2</span>, <span class="number">-3</span>,  <span class="number">2</span>,  <span class="number">2</span>],</div><div class="line">    [ <span class="number">0</span>, <span class="number">-1</span>,  <span class="number">4</span>,  <span class="number">4</span>],</div><div class="line">    [<span class="number">-2</span>, <span class="number">-1</span>,  <span class="number">4</span>,  <span class="number">4</span>],</div><div class="line">    [<span class="number">-4</span>, <span class="number">-3</span>,  <span class="number">4</span>,  <span class="number">2</span>],</div><div class="line">    [<span class="number">-2</span>, <span class="number">-3</span>,  <span class="number">4</span>,  <span class="number">4</span>]])</div><div class="line"></div><div class="line"></div><div class="line">key_point = np.array([[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</div><div class="line">[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</div><div class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>],</div><div class="line">[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</div><div class="line">[<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>],</div><div class="line">[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</div><div class="line">[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</div><div class="line">[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</div><div class="line">[<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>],</div><div class="line">[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</div><div class="line">[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</div><div class="line">[<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>],</div><div class="line">[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>]])</div><div class="line"></div><div class="line">fig = plt.figure()</div><div class="line">ax = fig.add_subplot(<span class="number">111</span>, projection=<span class="string">'3d'</span>)</div><div class="line"></div><div class="line">x = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>])</div><div class="line"></div><div class="line">y = np.array([<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>])</div><div class="line"></div><div class="line">z = np.array([<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>])</div><div class="line"></div><div class="line">ax.plot3D(x[:<span class="number">4</span>], y[:<span class="number">4</span>], z[:<span class="number">4</span>], <span class="string">'yo'</span>)</div><div class="line">ax.plot3D(x[<span class="number">4</span>:], y[<span class="number">4</span>:], z[<span class="number">4</span>:], <span class="string">'ro'</span>)</div><div class="line"></div><div class="line">X = np.arange(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0.05</span>)</div><div class="line">Y = np.arange(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0.05</span>)</div><div class="line">X, Y = np.meshgrid(X, Y)</div><div class="line"></div><div class="line">wframes = []</div><div class="line"></div><div class="line"><span class="keyword">for</span> index, value <span class="keyword">in</span> enumerate(w):</div><div class="line">    <span class="keyword">if</span>(value[<span class="number">3</span>] != <span class="number">0</span>):</div><div class="line">        Z = (-value[<span class="number">1</span>]*X - value[<span class="number">2</span>]*Y -value[<span class="number">0</span>])/value[<span class="number">3</span>]</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        Z = <span class="number">0</span></div><div class="line">    fgf = ax.scatter3D(key_point[index][<span class="number">0</span>], key_point[index][<span class="number">1</span>],key_point[index][<span class="number">2</span>],marker=<span class="string">"*"</span>, s=<span class="number">100</span>,c=<span class="string">"c"</span>)</div><div class="line">    wframes.append([fgf])</div><div class="line">    wframe = ax.plot_surface(X, Y, Z, rstride=<span class="number">2</span>, cstride=<span class="number">2</span>)</div><div class="line">    wframes.append([wframe])</div><div class="line"></div><div class="line"></div><div class="line">ani = animation.ArtistAnimation(fig, wframes, interval=<span class="number">900</span>, blit=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">plt.rcParams[<span class="string">'animation.ffmpeg_path'</span>] =<span class="string">'D:\\softWare\\ffmpeg-20170921-183fd30-win64-static\\bin\\ffmpeg.exe'</span></div><div class="line"><span class="comment">#FFwriter = animation.FFMpegWriter(fps=100, extra_args=['-vcodec', 'libx264'])</span></div><div class="line"></div><div class="line"><span class="comment">#ani.save('fgf.mp4', writer = FFwriter)</span></div><div class="line"><span class="comment">#animation.Animation.save(ani, filename="fgf.mp4")</span></div><div class="line"></div><div class="line">plt.show()</div></pre></td></tr></table></figure></p>
+<p><img src="/2017/09/30/Matplotlib-3D-Animation/matplotlib 3D.gif" alt="&#39;matplotlib 3D.gif&#39;"></p>
 
       
     </div>
@@ -391,9 +394,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/matplotlib/" rel="tag"># matplotlib</a>
+            <a href="/tags/3D/" rel="tag"># 3D</a>
           
-            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+            <a href="/tags/Matplotlib/" rel="tag"># Matplotlib</a>
+          
+            <a href="/tags/Animation/" rel="tag"># Animation</a>
           
         </div>
       
@@ -406,8 +411,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/31/TensorFloww-CNN/" rel="next" title="TensorFloww CNN">
-                <i class="fa fa-chevron-left"></i> TensorFloww CNN
+              <a href="/2017/08/31/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -415,10 +420,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/23/ubuntu-git/" rel="prev" title="ubuntu-git">
-                ubuntu-git <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -576,7 +577,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#用matplotlib来动态可视化TensorFlow的训练过程"><span class="nav-number">1.</span> <span class="nav-text">用matplotlib来动态可视化TensorFlow的训练过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#用matplotlib做3D动画"><span class="nav-number">1.</span> <span class="nav-text">用matplotlib做3D动画</span></a></li></ol></div>
             
 
           </div>
